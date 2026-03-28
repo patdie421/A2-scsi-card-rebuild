@@ -1,0 +1,166 @@
+Name      342-0415-A;
+Partno    0;
+Date      25/01/26;
+Revision  2;
+Designer  Patrice;
+Company   CDP;
+Assembly  None;
+Location  None;
+Device    g22V10;
+
+/* PINOUT */
+/* #IN: */
+/* PIN01 U2A_9               */
+/* PIN02 IOSTR               */
+/* PIN03 IOSEL               */
+/* PIN04 RES                 */
+/* PIN05 A10                 */
+/* PIN06 U3A_17              */
+/* PIN07 U3D_19              */
+/* PIN08 U3C_19              */
+/* PIN09 U5A_DRQ             */
+/* PIN15 U2D_6               */
+/* PIN12 GND                 */
+/* PIN24 VCC                 */
+
+/* # OUT:                    */
+/* PIN16 U3A_OE              */
+/* PIN17 U3A_CE              */
+/* PIN18 U5C_CS1             */
+/* PIN19 d7                  */
+/* PIN20 U6D_3               */
+/* PIN21 U6D_12              */
+/* PIN22 U3C_5               */
+/* PIN23 U3C_7               */
+
+
+/* INPUTS */
+PIN 1 = I1
+PIN 2 = I2
+PIN 3 = I3
+PIN 4 = I4
+PIN 5 = I5
+PIN 6 = I6
+PIN 7 = I7
+PIN 8 = I8
+PIN 9 = I9
+
+/* OUTPUTS */
+PIN 16 = O12
+PIN 17 = 013
+PIN 18 = O14
+PIN 19 = O15
+PIN 20 = F16
+PIN 21 = F17
+PIN 22 = F18
+PIN 23 = O19
+
+/* POWER */
+PIN 12 = GND
+PIN 24 = VCC
+/* PIN 11 = OE ? : Output enabled */
+
+
+/* /o19 = f18 * f17 */
+/*    + /f16        */
+/* o19.oe = vcc     */
+O19 = !(F18 & F17 # !F16)
+O19.oe = VCC
+
+
+/* /f18 = i1 * /f18 * i9           */
+/*     + i2 * /f18 * i9            */
+/*     + /i3 * /f18 * i9           */
+/*     + /f18 * i4 * i9            */
+/*     + /f18 * i5 * i9            */
+/*     + i2 * /i1 * i3 * /i5 * /i7 */
+/* f18.oe = vcc                    */
+F18 = !(
+    I1 & !F18 & I9
+  #	I2 & !F18 & I9
+  # !I3 & !F18 & I9
+  # !F18 & I4 & I9
+  # !F18 & I5 & I9
+  # I2 & !I1 & I3 & !I5 & !I7
+)
+F18.oe = VCC
+
+
+/* /f17 = i1 * /f17 * i9                 */
+/*     + i2 * /f17 * i9                  */
+/*     + /i3 * /f17 * i9                 */
+/*     + i4 * /f17 * i9                  */
+/*     + /f17 * i5 * i9                  */
+/*     + i2 * /i1 * /i3 * i4 * /i5 * /i7 */
+/* f17.oe = vcc                          */
+F17 = !(
+    I1 & !F17 & I9
+  # I2 & !F17 & I9
+  # !I3 & !F17 & I9
+  # I4 & !F17 & I9
+  # !F17 & I5 & I9
+  # I2 & !I1 & !I3 & I4 & !I5 & !I7
+)
+F17.oe = VCC
+
+
+/* /f16 = /i1 * /f16 * i9               */
+/*     + /i2 * /f16 * i9                */
+/*     + i3 * /f16 * i9                 */
+/*     + i4 * /f16 * i9                 */
+/*     + i5 * /f16 * i9                 */
+/*     + /f16 * i7 * i9                 */
+/*     + i2 * i1 * /i3 * i4 * /i5 * /i7 */
+/* f16.oe = vcc
+F16 = !(
+    !I1 & !F16 & I9
+  #	!I2 & !F16 & I9
+  # I3 & !F16 & I9
+  # I4 & !F16 & I9
+  # I5 & !F16 & I9
+  # I7 & !F16 & I9
+  # I2 & I1 & !/I3 * I4 & !I5 & !I7
+)
+F16.oe = VCC
+
+
+/* /o15 = /i1 * /i5 */
+/* o15.oe = vcc     */
+O15 = !(
+   !I1 & !I5
+)
+O15.oe=VCC
+
+
+/* /o14 = /i1 * /i5 * /i7 * /i8                 */
+/*     + /i2 * i1 * /i3 * /i4 * /i5 * /i7 * /i8 */
+/*     + /f17 * /i6 * /i8                       */
+/* o14.oe = vcc                                 */
+O14 = !(
+    !I1 & !I5 & !I7 & !I8
+  # !I2 & I1 & !I3 & !I4 & !I5 & !I7 & !I8
+  # !F17 & !I6 & !I8  
+)
+O14.oe = VCC
+
+
+/* /o13 = /i1 * /i5 * i7                 */
+/*     + /i2 * i1 * /i3 * /i4 * /i5 * i7 */
+/*     + /f18 * /i6                      */
+/* o13.oe = vcc                          */
+O13 = !(
+    !I1 & !I5 & I7
+  # !I2 & I1 & !I3 * !I4 & !I5 & I7
+  # !F18 & !I6  
+)
+O13.oe = VCC
+
+
+/* /o12 = /i2 * i1 * /i3 * /i4 * /i5 */
+/*     + /i6                         */
+/* o12.oe = vcc                      */
+O12 = !(
+    !I2 & I1 & !I3 & !I4 & !I5
+  # !I6 
+)
+O12.oe = VCC
