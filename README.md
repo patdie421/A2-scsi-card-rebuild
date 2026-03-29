@@ -1,1 +1,1 @@
-init
+Apple II SCSI card
