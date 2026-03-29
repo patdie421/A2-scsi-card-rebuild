@@ -528,7 +528,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "Gerber/",
+      "plot": "../../../Dev/A2SCSI/v0.0/Gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
