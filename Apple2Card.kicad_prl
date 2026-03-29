@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 2,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -15,12 +15,13 @@
       "vias": 1.0,
       "zones": 0.6
     },
+    "ratsnest_display_mode": 0,
     "selection_filter": {
       "dimensions": true,
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -45,12 +46,9 @@
       "pads",
       "zones",
       "drc_warnings",
-      "drc_exclusions",
-      "locked_item_shadows",
-      "conflict_shadows",
       "shapes"
     ],
-    "visible_layers": "ffffffff_ffffffff_ffffffff_ffffffff",
+    "visible_layers": "00000000_00000000_07ffffff_8200aaaf",
     "zone_display_mode": 0
   },
   "git": {
@@ -59,7 +57,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "a2scsi.kicad_prl",
+    "filename": "Apple2Card.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {

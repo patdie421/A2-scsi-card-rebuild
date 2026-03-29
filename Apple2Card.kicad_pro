@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 1.4,
-          "width": 0.975
+          "height": 8.53,
+          "width": 1.27
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -52,7 +52,13 @@
           "min_clearance": 0.0
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -123,7 +129,7 @@
         "max_error": 0.005,
         "min_clearance": 0.0,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.0,
+        "min_copper_edge_clearance": 0.01,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -186,7 +192,11 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
+      "track_widths": [
+        0.0,
+        0.35,
+        1.0
+      ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -213,7 +223,12 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -438,7 +453,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -459,7 +474,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "a2scsi.kicad_pro",
+    "filename": "Apple2Card.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -477,28 +492,28 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
       },
       {
-        "bus_width": 12,
+        "bus_width": 13,
         "clearance": 0.2,
-        "diff_pair_gap": 0.14,
+        "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.4,
+        "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "HDMI",
+        "name": "StdTrace",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6
+        "wire_width": 13
       }
     ],
     "meta": {
@@ -506,47 +521,14 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": [
-      {
-        "netclass": "HDMI",
-        "pattern": "D2_P"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "D2_N"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "D1_P"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "D1_N"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "D0_P"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "D0_N"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "CK_P"
-      },
-      {
-        "netclass": "HDMI",
-        "pattern": "CK_N"
-      }
-    ]
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../Dev/A2SCSI/v0.0/Gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -641,14 +623,14 @@
       "intersheets_ref_show": false,
       "intersheets_ref_suffix": "",
       "junction_size_choice": 3,
-      "label_size_ratio": 0.375,
+      "label_size_ratio": 0.25,
       "operating_point_overlay_i_precision": 3,
       "operating_point_overlay_i_range": "~A",
       "operating_point_overlay_v_precision": 3,
       "operating_point_overlay_v_range": "~V",
       "overbar_offset_ratio": 1.23,
-      "pin_symbol_size": 25.0,
-      "text_offset_ratio": 0.15
+      "pin_symbol_size": 0.0,
+      "text_offset_ratio": 0.08
     },
     "legacy_lib_dir": "",
     "legacy_lib_list": [],
@@ -680,7 +662,7 @@
   },
   "sheets": [
     [
-      "4c6c2bca-2dd1-4d7b-a3c3-50b1d850646e",
+      "b60c50d1-225e-415c-8712-7acb5e3dc8ea",
       "Root"
     ]
   ],
