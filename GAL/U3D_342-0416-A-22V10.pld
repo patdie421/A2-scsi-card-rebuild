@@ -11,27 +11,29 @@ Device    ATF16V8;
 $define HIGH 'b'1
 $define LOW 'b'0
 
+/* 16L8 pins */
 /* i1=1 i2=2 i3=3 i4=4 i5=5 i6=6 i7=7 i8=8 i9=9 GND=10 i11=11 o12=12 */
 /* f13=13 o14=14 o15=15 o16=16 o17=17 i18=18 o19=19 VCC=20 */
 
-PIN 1 = I1;
-PIN 2 = I2;
-PIN 3 = I3;
-PIN 4 = I4;
-PIN 5 = I5;
-PIN 6 = I6;
-PIN 7 = I7;
-PIN 8 = I8;
-PIN 9 = I9;
-PIN 11 = I11;
+/* 22V10 pins */
+PIN 3 = I1;
+PIN 4 = I2;
+PIN 5 = I3;
+PIN 6 = I4;
+PIN 7 = I5;
+PIN 8 = I6;
+PIN 9 = I7;
+PIN 10 = I8;
+PIN 11 = I9;
+PIN 13 = I11;
 
-PIN 12 = O12;
-PIN 13 = O13;
-PIN 14 = O14;
-PIN 15 = O15;
-PIN 16 = O16;
-PIN 17 = O17;
-PIN 18 = O18;
+PIN 14 = O12;
+PIN 15 = O13;
+PIN 16 = O14;
+PIN 17 = O15;
+PIN 18 = O16;
+PIN 19 = O17;
+PIN 20 = O18;
 
 /*
 /12.T = 1 * /2 * 5 +
